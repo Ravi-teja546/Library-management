@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <a routerLink="/books" data-test-toolbar-books-link>Books</a>
+  <a routerLink="/authors" data-test-toolbar-authors-link>Authors</a>
+</mat-toolbar>
+
+<div class="row error-loading" *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="row error-panel" *ngIf="error">
+  <mat-card>
+    <mat-card-title>
+      <span class="error-title">Error!</span>
+    </mat-card-title>
+
+    <mat-card-content>
+      <p class="error-detail">
+        {{ error?.stack }}
+      </p>
+      <p class="error-detail">
+        {{ error?.body?.error }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="wrapper">
+  <router-outlet></router-outlet>
+</div>

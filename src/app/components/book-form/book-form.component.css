@@ -1,0 +1,15 @@
+.form-full-width {
+  width: 90%;
+}
+
+.book-form-card {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-left: 30px;
+  margin-top: 50px;
+}
+
+.cancel-button {
+  float: right;
+  margin-right: 80px;
+}

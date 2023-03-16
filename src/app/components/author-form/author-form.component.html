@@ -1,0 +1,49 @@
+<mat-card class="author-form-card">
+  <h3><u data-test-author-form-title>New Author</u></h3>
+  <form class="author-form">
+    <mat-form-field class="form-full-width">
+      <input
+        matInput
+        type="text"
+        name="AuthorName"
+        [(ngModel)]="authorName"
+        placeholder="Author Name"
+        [formControl]="AuthorNameControl"
+      />
+      <mat-error *ngIf="AuthorNameControl.invalid">{{
+        getAuthorNameErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-full-width">
+      <input
+        matInput
+        type="number"
+        name="YearOfBirth"
+        [(ngModel)]="yearOfBirth"
+        placeholder="Year of Birth"
+        [formControl]="BirthYearControl"
+      />
+      <mat-error *ngIf="BirthYearControl.invalid">{{
+        getYearofBirthErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+    <br />
+    <button
+      [disabled]="BirthYearControl.invalid || AuthorNameControl.invalid"
+      mat-raised-button
+      color="primary"
+      (click)="addAuthor()"
+    >
+      Add Author
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="cancel-button"
+      (click)="returnToList()"
+    >
+      Cancel
+    </button>
+  </form>
+</mat-card>

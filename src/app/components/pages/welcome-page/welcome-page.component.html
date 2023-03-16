@@ -1,0 +1,22 @@
+<div style="text-align:center">
+  <h3 data-test-welcome-title>
+    Welcome to our Library!
+  </h3>
+  <button
+    data-test-welcome-books-button
+    class="books-link"
+    (click)="gotoBooks()"
+    mat-flat-button
+    color="primary"
+  >
+    Books
+  </button>
+  <button
+    data-test-welcome-authors-button
+    mat-flat-button
+    (click)="gotoAuthors()"
+    color="accent"
+  >
+    Authors
+  </button>
+</div>

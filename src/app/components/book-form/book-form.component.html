@@ -1,0 +1,81 @@
+<mat-card class="book-form-card">
+  <h3><u data-test-book-form-title>New Book</u></h3>
+  <form class="book-form">
+    <mat-form-field class="form-full-width">
+      <input
+        matInput
+        type="text"
+        name="title"
+        [(ngModel)]="title"
+        placeholder="Book Title"
+        [formControl]="TitleControl"
+      />
+      <mat-error *ngIf="TitleControl.invalid">{{
+        getTitleErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-full-width">
+      <mat-label>Choose Author</mat-label>
+      <mat-select [(value)]="authorId" [formControl]="AuthorControl">
+        <mat-option>Choose Author</mat-option>
+        <mat-option *ngFor="let author of authors" [value]="author.id">{{
+          author.name
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="AuthorControl.invalid">{{
+        getAuthorErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-full-width">
+      <input
+        matInput
+        type="number"
+        name="year"
+        [(ngModel)]="year"
+        placeholder="Publish Year"
+        [formControl]="PublishYearControl"
+      />
+      <mat-error *ngIf="PublishYearControl.invalid">{{
+        getPublishYearErrorMesage()
+      }}</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-full-width">
+      <input
+        matInput
+        type="text"
+        name="publisher"
+        [(ngModel)]="publisher"
+        placeholder="Publisher"
+        [formControl]="PublisherControl"
+      />
+      <mat-error *ngIf="PublisherControl.invalid">{{
+        getPublisherErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+    <br />
+    <button
+      [disabled]="
+        TitleControl.invalid ||
+        AuthorControl.invalid ||
+        PublishYearControl.invalid ||
+        PublisherControl.invalid
+      "
+      mat-raised-button
+      color="primary"
+      (click)="addBook()"
+    >
+      Add Book
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="cancel-button"
+      (click)="returnToList()"
+    >
+      Cancel
+    </button>
+  </form>
+</mat-card>

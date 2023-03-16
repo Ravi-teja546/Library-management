@@ -1,0 +1,28 @@
+<div *ngIf="bookDetail" class="book-details">
+  <h3><u data-test-book-detail-title>Book Details</u></h3>
+  <mat-card>
+    <mat-card-subtitle>Book Id: {{ bookDetail.id }} </mat-card-subtitle>
+    <mat-card-title>{{ bookDetail.title }}</mat-card-title>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>{{ authorDetail.name }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{ bookDetail.year }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{ bookDetail.publisher }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button
+        id="btn-delete-author"
+        mat-raised-button
+        color="warn"
+        (click)="deleteBook()"
+      >
+        Delete Book
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
